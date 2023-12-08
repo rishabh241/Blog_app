@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="274dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="9dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/white"
+    android:elevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/rec_heading"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/montserrat"
+            android:maxLines="2"
+            android:padding="2dp"
+            android:text="Please Start Writing Better Git Commits"
+            android:textColor="@color/blue"
+
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rec_blogger"
+            app:layout_constraintEnd_toStartOf="@+id/rec_blogger"
+            app:layout_constraintTop_toTopOf="@+id/rec_blogger">
+
+            <ImageView
+                android:id="@+id/rec_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img3" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/rec_blogger"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            android:text="New Blogger"
+            android:fontFamily="@font/montserrat"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rec_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="#C8C8C8"
+            android:textSize="11sp"
+            android:text="Jul 29, 2023"
+            app:layout_constraintEnd_toEndOf="@+id/rec_blogger"
+            app:layout_constraintStart_toStartOf="@+id/cardView3"
+            app:layout_constraintTop_toBottomOf="@+id/rec_blogger" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/rec_divider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/rec_blogger"
+            app:layout_constraintStart_toStartOf="@+id/rec_heading"
+            app:layout_constraintTop_toBottomOf="@+id/rec_date" />
+
+        <TextView
+            android:id="@+id/rec_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="top"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="10sp"
+            android:lineHeight="22sp"
+            android:maxLines="4"
+            android:text="I recently read a helpful article on Hashnode by Simon Egersand titled Write Git Commit Messages Your Colleagues Will Love,ans it inspired me to dive a little deeper into understanding what makes a Git commit good or bad."
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/rec_divider"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/rec_divider"
+            app:layout_constraintTop_toBottomOf="@+id/rec_divider" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_blog_btn"
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:background="@drawable/btn_bg_blue"
+            android:fontFamily="@font/montserrat"
+            android:text="Read More"
+            app:layout_constraintStart_toStartOf="@+id/rec_desc"
+            app:layout_constraintTop_toBottomOf="@+id/rec_desc" />
+
+        <TextView
+            android:id="@+id/rec_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="60dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="2sp"
+            android:text="20"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_blog_btn"
+            app:layout_constraintStart_toEndOf="@+id/add_blog_btn"
+            app:layout_constraintTop_toTopOf="@+id/add_blog_btn"
+            />
+
+        <ImageButton
+            android:id="@+id/rec_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@android:color/transparent"
+            android:padding="3dp"
+            android:src="@drawable/icon_like1"
+            app:layout_constraintBottom_toBottomOf="@+id/rec_count"
+            app:layout_constraintStart_toEndOf="@+id/rec_count"
+            app:layout_constraintTop_toTopOf="@+id/rec_count" />
+
+        <ImageButton
+            android:id="@+id/rec_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:padding="3dp"
+            android:src="@drawable/icon_bookmark_outline"
+            app:layout_constraintBottom_toBottomOf="@+id/rec_like"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rec_like"
+            app:layout_constraintTop_toTopOf="@+id/rec_like" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
