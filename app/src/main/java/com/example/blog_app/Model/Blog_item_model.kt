@@ -1,6 +1,7 @@
 package com.example.blog_app.Model
 
 data class Blog_item_model(
+    val userId: String="null",
     val heading: String="null",
     val userName: String="null",
     val date: String="null",

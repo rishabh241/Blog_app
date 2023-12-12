@@ -5,4 +5,6 @@ data class UserData(
     val email: String="null",
     val pass: String="null",
     val imageUrl: String="null"
-)
+){
+    constructor(): this(" ","","","")
+}
