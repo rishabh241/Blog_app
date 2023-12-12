@@ -1,5 +1,6 @@
 package com.example.blog_app
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import java.net.URI
+import kotlin.math.log
 
 class SignIn_Register : AppCompatActivity() {
 //    private val binding: ActivitySigninRegisterBinding by lazy {
@@ -108,19 +110,18 @@ class SignIn_Register : AppCompatActivity() {
                                     // save user Profile or upload image of a user
                                     val storageReference = storage.reference.child("profile_image/$userId.jpg")
                                     storageReference.putFile(ImageUri!!)
-                                    storageReference.downloadUrl.addOnCompleteListener{task->
-                                        val imgUrl = ImageUri.toString()
-
-                                        userReference.child(userId).child("profileImage").setValue(imgUrl)
-                                        Glide.with(this)
-                                            .load(ImageUri)
-                                            .apply(RequestOptions.circleCropTransform())
-                                            .into(binding.imageView2)
+                                        .addOnCompleteListener{task->
+                                            if(task.isSuccessful){
+                                            storageReference.downloadUrl.addOnCompleteListener{imageUri->
+                                                if(imageUri.isSuccessful){
+                                                    val imgUrl:String= imageUri.result.toString()
+                                                    userReference.child(userId).child("imageUrl").setValue(imgUrl)
+                                                }
+                                           }
+                                        }
                                     }
-
                                     startActivity(Intent(this,welcome::class.java))
                                     finish()
-
                                 }
                             }else{
                                 Toast.makeText(this,"Invalid ${task.exception?.message.toString()}",Toast.LENGTH_LONG).show()

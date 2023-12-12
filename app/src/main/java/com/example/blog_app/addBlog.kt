@@ -36,13 +36,13 @@ class addBlog : AppCompatActivity() {
             val description: String = binding.addBlogDescEditText?.text.toString().trim()
 
             val user : FirebaseUser?=auth.currentUser
-
+//            val username = user?.displayName
             if(title.isEmpty() || description.isEmpty()){
-
+                Toast.makeText(this, "Fill all the details ",Toast.LENGTH_LONG).show()
             }else{
                 if(user!=null){
                     val userId = user.uid
-                    val username = user.displayName?:"Anonymous"
+
                     val profilePic = user.photoUrl?:""
 
                     userReference.child(userId).addListenerForSingleValueEvent(object : ValueEventListener{
@@ -50,17 +50,18 @@ class addBlog : AppCompatActivity() {
                             val userData = snapshot.getValue(UserData::class.java)
                             if(userData!=null){
                                 val userName = userData.name
-                                val userProgileUrl = userData.imageUrl
+                                val userProfileUrl = userData.imageUrl
                                 val currentData = SimpleDateFormat("yyyy-MM-dd").format(Date())
 
                                 // Blog Item Model
                                 val blog_item = Blog_item_model(
+                                    userId,
                                     title,
                                     userName,
                                     currentData,
                                     description,
                                     0,
-                                    userProgileUrl
+                                    userProfileUrl
                                 )
                                 //generate key for blog
                                 val key = databaseReference.push().key
