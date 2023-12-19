@@ -40,7 +40,7 @@
         android:layout_marginEnd="25dp"
         android:background="@android:color/transparent"
         android:padding="3dp"
-        android:src="@drawable/icon_bookmark_outline"
+        android:src="@drawable/icon_bookmark"
         app:layout_constraintBottom_toBottomOf="@+id/cardView2"
         app:layout_constraintEnd_toStartOf="@+id/cardView2"
         app:layout_constraintTop_toTopOf="@+id/cardView2" />
@@ -95,7 +95,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="35dp"
         android:clickable="true"
-        app:borderWidth="2dp"
+        app:borderWidth="0dp"
         android:backgroundTint="@color/blue"
         app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

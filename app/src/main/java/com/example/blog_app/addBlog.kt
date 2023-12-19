@@ -54,6 +54,7 @@ class addBlog : AppCompatActivity() {
                                 val currentData = SimpleDateFormat("yyyy-MM-dd").format(Date())
 
                                 // Blog Item Model
+                                val key = databaseReference.push().key
                                 val blog_item = Blog_item_model(
                                     userId,
                                     title,
@@ -61,10 +62,11 @@ class addBlog : AppCompatActivity() {
                                     currentData,
                                     description,
                                     0,
-                                    userProfileUrl
+                                    userProfileUrl,
+                                    key.toString()
                                 )
                                 //generate key for blog
-                                val key = databaseReference.push().key
+
 
                                 if(key!=null){
                                     val blogRefrence = databaseReference.child(key)

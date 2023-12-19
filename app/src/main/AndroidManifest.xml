@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Blog_app"
         tools:targetApi="31">
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".read_article"
             android:exported="false" />
         <activity

@@ -1,24 +1,19 @@
 package com.example.blog_app
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.blog_app.Model.UserData
 import com.example.blog_app.databinding.ActivitySigninRegisterBinding
 import com.example.blog_app.register.welcome
-import com.google.android.play.integrity.internal.e
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import java.net.URI
-import kotlin.math.log
 
 class SignIn_Register : AppCompatActivity() {
 //    private val binding: ActivitySigninRegisterBinding by lazy {
@@ -43,6 +38,8 @@ class SignIn_Register : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance("https://food-app-62353-default-rtdb.asia-southeast1.firebasedatabase.app")
         storage = FirebaseStorage.getInstance()
+
+
 
         val action: String? = intent.getStringExtra("action")
 

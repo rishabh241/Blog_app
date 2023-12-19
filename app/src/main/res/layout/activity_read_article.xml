@@ -6,4 +6,147 @@
     android:layout_height="match_parent"
     tools:context=".read_article">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_" />
+
+    <ImageButton
+        android:id="@+id/read_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="38dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/icon_arr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/read_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:padding="3dp"
+        android:layout_marginTop="31dp"
+        android:text="Please Start Writing Better Git Commits Writing Better Git Commits Please Start Writing Better Git Commits Writing Better Git "
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:letterSpacing="-0.02"
+        android:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/read_back"
+        app:layout_constraintTop_toBottomOf="@+id/read_back" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintStart_toStartOf="@+id/read_title"
+        app:layout_constraintTop_toBottomOf="@+id/read_title">
+
+        <ImageView
+            android:id="@+id/read_author_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img1" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+    <TextView
+        android:id="@+id/read_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:text="Rishabh Goswami"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:letterSpacing="-0.03"
+        android:fontFamily="@font/montserrat"
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+        app:layout_constraintStart_toEndOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+    <TextView
+        android:id="@+id/read_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Jul 29, 2023"
+        android:textColor="#C8C8C8"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/read_author"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/read_author" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/rec_divider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:dividerColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/rec_divider"
+        app:layout_constraintStart_toStartOf="@+id/rec_divider"
+        app:layout_constraintTop_toBottomOf="@+id/rec_divider">
+
+        <TextView
+            android:id="@+id/read_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat"
+            android:textSize="14sp"
+            android:layout_marginBottom="5dp"
+            android:lineSpacingExtra="30sp"
+            android:textColor="@color/black"
+            android:text="Rishabh" />
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/read_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:backgroundTint="@color/blue"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/read_bookmark"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:srcCompat="@drawable/icon_like" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/read_bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="20dp"
+        android:tint="@color/white"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:srcCompat="@drawable/icon_bookmark" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

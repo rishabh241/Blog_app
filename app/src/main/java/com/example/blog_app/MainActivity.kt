@@ -31,9 +31,21 @@ class MainActivity : AppCompatActivity() {
 
         val userId = auth.currentUser?.uid
 
+        val finish = intent.getBooleanExtra("finish", false)
+        if (finish) {
+            startActivity(Intent(this, welcome::class.java))
+            finish()
+            return
+        }
+//        initializeView()
+
         if(userId!=null){
             //set user Profile
             loadUserProfile(userId)
+        }
+
+        binding.homeProfile.setOnClickListener{
+            startActivity(Intent(this,Profile::class.java))
         }
         // recycler View manager, set adapter
         val blogView = binding.homeRec
@@ -45,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         databaseReference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 blogitems.clear()
+
                 for(snap in snapshot.children){
                     val blogItem = snap.getValue(Blog_item_model::class.java)
                     if(blogItem!=null){
@@ -52,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 blog_adapter.notifyDataSetChanged()
+                blogitems.reverse()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -59,6 +73,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+//        binding.homeBookmark.setOnClickListener{
+//            startActivity(Intent(this,read_article::class.java))
+//        }
 
         binding.addBlogbtn.setOnClickListener{
             startActivity(Intent(this,addBlog::class.java))
